@@ -1,9 +1,11 @@
+import os
 import RPi.GPIO as GPIO  
+import threading
 
 #Para sensores se va a usar los pines 11(GPIO.17) y 12(GPIO.18)
 
-sensorIn 	= 	17
-sensorOut 	= 	18
+sensorIn 	= 	17 #SensorTouch en prueba
+sensorOut 	= 	18 #SensorEncoder en 
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(sensorIn, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -13,3 +15,38 @@ valorSensorIn = GPIO.input(sensorIn)
 
 
 print(valorSensorIn)
+
+
+
+
+contaA = 0
+contaB = 0
+
+
+#Callbacks
+def CuentaA(channel):
+    global contaA
+    contaA += 1
+    os.system("clear")
+    print ("Contador A: ", contaA)
+    print ("Contador B: ", contaB)
+
+def CuentaB(channel):
+    global contaB
+    contaB += 1
+    os.system("clear")
+    print ("Contador A: ", contaA)
+    print ("Contador B: ", contaB)
+
+#Interrupciones
+GPIO.add_event_detect(sensorIn, GPIO.RISING, callback = CuentaA)
+GPIO.add_event_detect(sensorOut, GPIO.RISING, callback = CuentaB)
+
+print ("Contador A: ", contaA)
+print ("Contador B: ", contaB)
+
+#Bucle principal
+while(contaA < 5):
+    pass
+
+GPIO.cleanup()
