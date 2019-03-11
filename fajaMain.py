@@ -28,8 +28,8 @@ contaB = 0
 
 #Callbacks
 def CuentaA(channel):
-	ret,frame
     global contaA
+    ret,frame
     contaA += 1
     os.system("clear")
     print ("Contador A: ", contaA)
@@ -57,7 +57,7 @@ while(contaA < 5):
 	print(i)
 	i += 1 
 	time.sleep(1)
-	
+
 GPIO.cleanup()
 cap.release()
 cv2.destroyAllWindows()
