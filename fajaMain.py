@@ -1,7 +1,7 @@
 import os
 import RPi.GPIO as GPIO  
 import threading
-
+import time
 #Para sensores se va a usar los pines 11(GPIO.17) y 12(GPIO.18)
 
 sensorIn 	= 	17 #SensorTouch en prueba
@@ -46,7 +46,9 @@ print ("Contador A: ", contaA)
 print ("Contador B: ", contaB)
 
 #Bucle principal
+i = 0 
 while(contaA < 5):
-    pass
-
+	print(i)
+	i += 1 
+	time.sleep(1)
 GPIO.cleanup()
