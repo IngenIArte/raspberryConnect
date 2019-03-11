@@ -53,7 +53,7 @@ def detectarCirculo(image_np):
 
 	else:
 		circles = np.uint16(np.around(circles))
-		print("circulos",circles)<
+		print("circulos",circles)
 		for i in circles[0,:]:
 			# draw the outer circle
 			print(i[0],i[1],i[2])
