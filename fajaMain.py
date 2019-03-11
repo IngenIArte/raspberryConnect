@@ -33,8 +33,10 @@ def CuentaA(channel):
     os.system("clear")
     print ("Contador A: ", contaA)
     print ("Contador B: ", contaB)
-    ret,frame = cap.read()
+    ret, frame = cap.read()
     cv2.imshow("Entrada", frame)
+    nombreCuenta = "im" + str(contaA) + ".jpg"
+    cv2.imwrite(nombreCuenta, frame)
 
 def CuentaB(channel):
     global contaB
@@ -47,8 +49,8 @@ def CuentaB(channel):
 GPIO.add_event_detect(sensorIn, GPIO.RISING, callback = CuentaA)
 GPIO.add_event_detect(sensorOut, GPIO.RISING, callback = CuentaB)
 
-print ("Contador A: ", contaA)
-print ("Contador B: ", contaB)
+#print ("Contador A: ", contaA)
+#print ("Contador B: ", contaB)
 
 #Bucle principal
 i = 0 
