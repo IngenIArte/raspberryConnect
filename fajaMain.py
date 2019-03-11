@@ -2,6 +2,9 @@ import os
 import RPi.GPIO as GPIO  
 import threading
 import time
+
+import cv2
+cap = cv2.VideoCapture(0)
 #Para sensores se va a usar los pines 11(GPIO.17) y 12(GPIO.18)
 
 sensorIn 	= 	17 #SensorTouch en prueba
@@ -25,11 +28,14 @@ contaB = 0
 
 #Callbacks
 def CuentaA(channel):
+	ret,frame
     global contaA
     contaA += 1
     os.system("clear")
     print ("Contador A: ", contaA)
     print ("Contador B: ", contaB)
+    ret,frame = cap.read()
+    cv2.imshow("Entrada", frame)
 
 def CuentaB(channel):
     global contaB
@@ -51,4 +57,7 @@ while(contaA < 5):
 	print(i)
 	i += 1 
 	time.sleep(1)
+	
 GPIO.cleanup()
+cap.release()
+cv2.destroyAllWindows()
