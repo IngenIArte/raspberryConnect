@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import threading
 import time
 import numpy as np
+
 import cv2
 cap = cv2.VideoCapture(0)
 #Para sensores se va a usar los pines 11(GPIO.17) y 12(GPIO.18)
@@ -106,7 +107,7 @@ def detectarCirculo(image_np):
 def CuentaA(channel):
     global contaA
     contaA += 1
-    os.system("clear")
+    #os.system("clear")
     print ("Contador A: ", contaA)
     print ("Contador B: ", contaB)
     ret, frame = cap.read()
@@ -118,7 +119,7 @@ def CuentaA(channel):
 def CuentaB(channel):
     global contaB
     contaB += 1
-    os.system("clear")
+    #os.system("clear")
     print ("Contador A: ", contaA)
     print ("Contador B: ", contaB)
 
