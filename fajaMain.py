@@ -132,7 +132,7 @@ GPIO.add_event_detect(sensorOut, GPIO.RISING, callback = CuentaB)
 
 #Bucle principal
 i = 0 
-while(contaA < 5):
+while(contaA < 50):
 	print(i)
 	i += 1 
 	time.sleep(1)
