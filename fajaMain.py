@@ -53,6 +53,7 @@ def detectarCirculo(image_np):
 		print("es None")
 
 	else:
+
 		circles = np.uint16(np.around(circles))
 		print("circulos",circles)
 		for i in circles[0,:]:
@@ -102,6 +103,7 @@ def detectarCirculo(image_np):
 		print(dim)
 		#print("Valor de pixel", pixelValue)
 		cv2.imshow('detected circles',cimg)
+		cv2.imshow('imagen principal', image_np)
                         
 #-----------------------------Funciones para interrupcion-------------------------------------------
 def CuentaA(channel):
