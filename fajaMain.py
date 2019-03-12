@@ -103,7 +103,8 @@ def detectarCirculo(image_np):
 		print(dim)
 		#print("Valor de pixel", pixelValue)
 		cv2.imshow('detected circles',cimg)
-		cv2.imshow('imagen principal', image_np)
+
+	cv2.imshow('imagen principal', image_np)
                         
 #-----------------------------Funciones para interrupcion-------------------------------------------
 def CuentaA(channel):
